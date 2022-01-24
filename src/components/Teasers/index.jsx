@@ -7,6 +7,7 @@ class teasers extends Component {
   componentDidMount() {
     this.props.getTeasers();
   }
+
   render() {
     const { teasers } = this.props.teasers;
 
@@ -18,13 +19,20 @@ class teasers extends Component {
       >
         <div className="container">
           <div className="row">
-            {teasers.map((teaser) => (
+            {teasers.map((teaser, index) => (
               <React.Fragment key={teaser.id}>
-                <article className="teaser col-lg-6">
+                <article
+                  className={`teaser col-xl-6 ${
+                    index === 0 ? "col-md-12" : "col-md-6"
+                  }`}
+                >
                   <div className="teaser__image">
                     <a href={teaser.url}>
                       <picture>
-                        <img src={teaser.contentImageUrl} alt="" />
+                        <img
+                          src={teaser.contentImageUrl}
+                          alt={teaser.contentTitle}
+                        />
                       </picture>
                     </a>
                   </div>
@@ -33,7 +41,6 @@ class teasers extends Component {
                       <a href={teaser.url}>{teaser.contentTitle}</a>
                     </h2>
                     <p className="teaser__summary">{teaser.contentSummary}</p>
-                    <p className="teaser__body">{teaser.contentTitle}</p>
                   </div>
                 </article>
               </React.Fragment>

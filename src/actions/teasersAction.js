@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const getTeasers = () => async (dispatch) => {
   try {
-    const res = await axios.get(`${API_JSON_BASE}data`);
+    const res = await axios.get(`${API_JSON_BASE}/data`);
 
     dispatch({
       type: GET_TEASERS,

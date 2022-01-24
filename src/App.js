@@ -7,7 +7,7 @@ import { isMobile } from "react-device-detect";
 
 function App() {
   return (
-    <div className="page">
+    <div className={`page ${isMobile ? "mobile" : ""}`}>
       <Header title="Article Feed" />
       <div className="site-wrapper">
         <div className="container">
